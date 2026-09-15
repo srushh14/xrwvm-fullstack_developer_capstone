@@ -1,68 +1,161 @@
 <html>
 <head>
-  <!-- Link the style sheet here -->
+  <title>About Us - Dealerships</title>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/style.css">
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
-    <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
-        </div>
-      </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
-        </div>
-      </div>
+<body>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light"
+     style="background-color:darkturquoise; height: 1in;">
+  <div class="container-fluid">
+
+    <h2 style="padding-right: 5%;">Dealerships</h2>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link"
+             style="font-size: larger;"
+             aria-current="page"
+             href="/">
+             Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active"
+             style="font-size: larger;"
+             href="/about">
+             About Us
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             style="font-size: larger;"
+             href="/contact">
+             Contact Us
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="card"
+     style="width: 80%; margin: auto; margin-top:5%;">
+
+  <div class="banner" name="about-header">
+
+    <h1>About Us</h1>
+
+    <p>
+      Welcome to Dealerships, your trusted destination for finding
+      quality cars and reliable dealerships across the United States.
+      Our goal is to make the car buying experience simple, transparent,
+      and convenient for every customer.
+    </p>
+
+  </div>
+
+
+  <div style="display:flex; flex-direction:row; margin:auto; gap:20px; padding:20px;">
+
+    <!-- Team Member 1 -->
+
+    <div class="card" style="width:30%;">
+
+      <img class="card-img-top"
+           src="/static/person.png"
+           alt="Srushti Dashpute">
+
+      <div class="card-body">
+
+        <p class="title">Srushti Dashpute</p>
+
+        <p><strong>Full Stack Developer</strong></p>
+
+        <p class="card-text">
+          Srushti develops and maintains the dealership web platform
+          and works on creating responsive and user-friendly web
+          applications.
+        </p>
+
+        <p>srushti@dealerships.com</p>
+
       </div>
     </div>
+
+
+    <!-- Team Member 2 -->
+
+    <div class="card" style="width:30%;">
+
+      <img class="card-img-top"
+           src="/static/person.png"
+           alt="Rahul Sharma">
+
+      <div class="card-body">
+
+        <p class="title">Rahul Sharma</p>
+
+        <p><strong>Backend Developer</strong></p>
+
+        <p class="card-text">
+          Rahul develops secure backend services and APIs that manage
+          dealership information, customer reviews, and application data.
+        </p>
+
+        <p>rahul@dealerships.com</p>
+
+      </div>
     </div>
+
+
+    <!-- Team Member 3 -->
+
+    <div class="card" style="width:30%;">
+
+      <img class="card-img-top"
+           src="/static/person.png"
+           alt="Priya Mehta">
+
+      <div class="card-body">
+
+        <p class="title">Priya Mehta</p>
+
+        <p><strong>UI/UX Designer</strong></p>
+
+        <p class="card-text">
+          Priya designs intuitive interfaces and improves the overall
+          user experience for customers searching for dealerships and cars.
+        </p>
+
+        <p>priya@dealerships.com</p>
+
+      </div>
     </div>
-    
+
+  </div>
+
 </div>
 
+</body>
 </html>
