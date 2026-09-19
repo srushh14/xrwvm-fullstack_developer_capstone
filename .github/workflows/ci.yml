@@ -30,8 +30,7 @@ jobs:
 
       - name: Run Django system checks
         working-directory: ./server
-        run: |
-          python manage.py check
+        run: python manage.py check
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -42,8 +41,8 @@ jobs:
         working-directory: ./server/frontend
         run: npm install
 
-      -      - name: Build React frontend
+      - name: Build React frontend
         working-directory: ./server/frontend
         env:
-          CI: false
+          CI: "false"
         run: npm run build
