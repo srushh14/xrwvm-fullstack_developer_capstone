@@ -1,16 +1,33 @@
-FROM node:18.12.1-bullseye-slim
+# Build the React frontend
+FROM node:18-alpine AS frontend-build
 
-RUN npm install -g npm@9.1.3
+WORKDIR /frontend
 
-ADD package.json .
-ADD app.js .
-ADD review.js .
-ADD dealership.js .
-ADD data/dealerships.json .
-ADD data/reviews.json .
-COPY . .
+COPY frontend/package*.json ./
+
 RUN npm install
 
-EXPOSE 3030
+COPY frontend/ ./
 
-CMD [ "node", "app.js" ]
+RUN npm run build
+
+
+# Build the Django application
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+# Copy the compiled React application
+COPY --from=frontend-build /frontend/build /app/frontend/build
+
+RUN python manage.py collectstatic --noinput
+
+EXPOSE 8000
+
+CMD ["gunicorn", "djangoproj.wsgi:application", "--bind", "0.0.0.0:8000"]

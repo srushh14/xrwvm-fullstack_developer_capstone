@@ -28,7 +28,6 @@ REST_FRAMEWORK = {
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'djangoapp.apps.DjangoappConfig',
     'django.contrib.admin',
@@ -53,12 +52,15 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'djangoproj.urls'
 
 
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
 
-        # Custom templates directory
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [
+            BASE_DIR / 'templates',
+            BASE_DIR / 'frontend' / 'build',
+        ],
 
         'APP_DIRS': True,
 
@@ -78,7 +80,6 @@ WSGI_APPLICATION = 'djangoproj.wsgi.application'
 
 
 # Database
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -88,7 +89,6 @@ DATABASES = {
 
 
 # Password validation
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME':
@@ -110,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -123,25 +122,21 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Include frontend static files such as:
-# car_dealership.jpg, cars.jpeg, CSS, JS, etc.
 STATICFILES_DIRS = [
     BASE_DIR / 'frontend' / 'static',
+    BASE_DIR / 'frontend' / 'build' / 'static',
 ]
 
 
 # Media files
-
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
 
 MEDIA_URL = '/media/'
 
 
 # Default primary key field type
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
