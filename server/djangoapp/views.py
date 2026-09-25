@@ -1,4 +1,5 @@
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import logging
@@ -43,6 +44,51 @@ def login_user(request):
         }
 
     return JsonResponse(data)
+
+
+# ---------------------------------------------------
+# REGISTER
+# ---------------------------------------------------
+
+@csrf_exempt
+def register_user(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+
+            username = data.get("userName")
+            first_name = data.get("firstName")
+            last_name = data.get("lastName")
+            email = data.get("email")
+            password = data.get("password")
+
+            if User.objects.filter(username=username).exists():
+                return JsonResponse({
+                    "status": "User already exists"
+                })
+
+            User.objects.create_user(
+                username=username,
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+                password=password
+            )
+
+            return JsonResponse({
+                "userName": username,
+                "status": "Registered"
+            })
+
+        except Exception as e:
+            return JsonResponse({
+                "status": "Error",
+                "message": str(e)
+            })
+
+    return JsonResponse({
+        "status": "POST request required"
+    })
 
 
 # ---------------------------------------------------

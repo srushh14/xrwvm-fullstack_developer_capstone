@@ -7,13 +7,21 @@ app_name = 'djangoapp'
 
 urlpatterns = [
 
-    # Login and Logout
+    # Login
     path(
         'login',
         views.login_user,
         name='login'
     ),
 
+    # Register
+    path(
+        'register',
+        views.register_user,
+        name='register'
+    ),
+
+    # Logout
     path(
         'logout',
         views.logout_request,

@@ -8,7 +8,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = (event) => {
+  const handleRegister = async (event) => {
     event.preventDefault();
 
     const userData = {
@@ -19,7 +19,33 @@ const Register = () => {
       password,
     };
 
-    console.log("Registration Data:", userData);
+    try {
+      const registerUrl =
+        window.location.origin + "/djangoapp/register";
+
+      const response = await fetch(registerUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      const data = await response.json();
+
+      if (data.status === "Registered") {
+        alert("Registration successful!");
+        window.location.href = "/login";
+      } else if (data.status === "User already exists") {
+        alert("User already exists. Please login.");
+        window.location.href = "/login";
+      } else {
+        alert("Registration failed.");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      alert("Registration failed.");
+    }
   };
 
   return (
